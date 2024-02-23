@@ -1,0 +1,7 @@
+#Если запрос не идет на конкретный файл или папку. примениить правило
+#обращаемся к index.php и отправл. методом GET запрос
+#L - последние правило (другие не сработают)
+#QSA - доп. GET парметры не отбрасываются. а добавляются к сущ. GET
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) index.php?$1 [L,QSA]
